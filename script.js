@@ -79,6 +79,7 @@ contactForm.addEventListener('submit', async function (e) {
 
 // scroll-triggered reveals
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = reduceMotion;
 const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
 if (reduceMotion) {
     revealEls.forEach(el => el.classList.add('in-view'));
@@ -128,29 +129,111 @@ if (reduceMotion) {
     if (statsRow) statObserver.observe(statsRow);
 }
 
-// node-graph signature (multi-agent motif)
+// node-graph signature — 3D version (multi-agent motif) via Three.js
 (function () {
-    const svgNS = "http://www.w3.org/2000/svg";
-    const lines = document.getElementById('lines');
-    const nodes = document.getElementById('nodes');
-    if (!lines || !nodes) return;
-    const pts = [
-        [200, 60], [80, 140], [320, 140], [60, 260], [200, 220], [340, 260],
-        [120, 340], [280, 340], [200, 340]
-    ];
-    const edges = [[0, 1], [0, 2], [1, 3], [1, 4], [2, 4], [2, 5], [3, 6], [4, 6], [4, 7], [5, 7], [6, 8], [7, 8], [4, 8]];
-    edges.forEach(([a, b], i) => {
-        const l = document.createElementNS(svgNS, 'line');
-        l.setAttribute('x1', pts[a][0]); l.setAttribute('y1', pts[a][1]);
-        l.setAttribute('x2', pts[b][0]); l.setAttribute('y2', pts[b][1]);
-        l.setAttribute('class', i % 4 === 0 ? 'pulse-line' : '');
-        lines.appendChild(l);
+    const canvas = document.getElementById('nodeCanvas');
+    const container = canvas ? canvas.parentElement : null;
+    if (!canvas || !container || typeof THREE === 'undefined') return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.z = 7;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    function resize() {
+        const w = container.clientWidth, h = container.clientHeight;
+        if (w === 0 || h === 0) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    // nodes placed on a sphere (fibonacci distribution) — reads as a network, not a blob
+    const NODE_COUNT = 14;
+    const radius = 3;
+    const nodePositions = [];
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < NODE_COUNT; i++) {
+        const y = 1 - (i / (NODE_COUNT - 1)) * 2;
+        const r = Math.sqrt(Math.max(0, 1 - y * y));
+        const theta = goldenAngle * i;
+        nodePositions.push(new THREE.Vector3(Math.cos(theta) * r * radius, y * radius, Math.sin(theta) * r * radius));
+    }
+
+    const signalColor = 0x3654ff;
+    const amberColor = 0xff8a3d;
+    const inkColor = 0x2a2e37;
+
+    const sphereGeo = new THREE.SphereGeometry(0.09, 16, 16);
+    nodePositions.forEach((pos, i) => {
+        const color = i % 4 === 0 ? amberColor : (i % 3 === 0 ? signalColor : inkColor);
+        const mesh = new THREE.Mesh(sphereGeo, new THREE.MeshBasicMaterial({ color }));
+        mesh.position.copy(pos);
+        group.add(mesh);
     });
-    pts.forEach((p, i) => {
-        const c = document.createElementNS(svgNS, 'circle');
-        c.setAttribute('cx', p[0]); c.setAttribute('cy', p[1]);
-        c.setAttribute('r', i === 4 ? 9 : 6);
-        c.setAttribute('class', 'node' + (i % 3 === 0 ? ' accent' : ''));
-        nodes.appendChild(c);
+
+    // connect each node to its nearest neighbors so it reads as a network
+    const K = 3;
+    const lineMat = new THREE.LineBasicMaterial({ color: signalColor, transparent: true, opacity: 0.32 });
+    const seenEdges = new Set();
+    nodePositions.forEach((a, i) => {
+        const byDistance = nodePositions
+            .map((b, j) => ({ j, d: i === j ? Infinity : a.distanceTo(b) }))
+            .sort((p, q) => p.d - q.d);
+        for (let k = 0; k < K; k++) {
+            const j = byDistance[k].j;
+            const key = [Math.min(i, j), Math.max(i, j)].join('-');
+            if (seenEdges.has(key)) continue;
+            seenEdges.add(key);
+            const geo = new THREE.BufferGeometry().setFromPoints([nodePositions[i], nodePositions[j]]);
+            group.add(new THREE.Line(geo, lineMat));
+        }
     });
+
+    // mouse parallax tilt
+    let targetTiltX = 0, targetTiltY = 0;
+    container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const mx = (e.clientX - rect.left) / rect.width - 0.5;
+        const my = (e.clientY - rect.top) / rect.height - 0.5;
+        targetTiltY = mx * 0.6;
+        targetTiltX = -my * 0.6;
+    });
+    container.addEventListener('mouseleave', () => { targetTiltX = 0; targetTiltY = 0; });
+
+    let spin = 0;
+    function animate() {
+        requestAnimationFrame(animate);
+        if (!prefersReducedMotion) spin += 0.0025;
+        group.rotation.y += ((spin + targetTiltY) - group.rotation.y) * 0.05;
+        group.rotation.x += (targetTiltX - group.rotation.x) * 0.05;
+        renderer.render(scene, camera);
+    }
+    animate();
 })();
+
+// 3D tilt on hover for project and "now" cards
+if (!prefersReducedMotion) {
+    function apply3DTilt(selector, maxDeg, scale) {
+        document.querySelectorAll(selector).forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const px = (e.clientX - rect.left) / rect.width;
+                const py = (e.clientY - rect.top) / rect.height;
+                const rotY = (px - 0.5) * maxDeg;
+                const rotX = -(py - 0.5) * maxDeg;
+                card.style.transform = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
+            });
+            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+        });
+    }
+    apply3DTilt('.proj-card', 5, 1.015);
+    apply3DTilt('.now-card', 7, 1.03);
+}
