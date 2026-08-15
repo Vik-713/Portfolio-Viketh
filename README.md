@@ -1,5 +1,9 @@
 # Viketh — Portfolio
 
+**Live:** [portfolio-viketh-two.vercel.app](https://portfolio-viketh-two.vercel.app/)
+
+[![Portfolio preview](https://api.microlink.io/?url=https://portfolio-viketh-two.vercel.app/&screenshot=true&meta=false&embed=screenshot.url)](https://portfolio-viketh-two.vercel.app/)
+
 ```
 $ whoami
 Computer Science student. Still compiling.
