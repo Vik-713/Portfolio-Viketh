@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viketh — Computer Science Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="bg-glow"></div>
+    <div class="bg-grain"></div>
+
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo"><span class="dot"></span>Viketh</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#journey">Journey</a>
+                <a href="#projects">Projects</a>
+                <a href="#now">Now</a>
+                <a href="#contact">Contact</a>
+                <a href="/index.html">Original Portfolio</a>
+            </nav>
+            <a href="#contact" class="nav-cta">Say hi ↗</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="wrap">
+                <div class="hero-grid">
+                    <div>
+                        <span class="badge hero-anim d1"><span class="blink"></span>currently learning: multi-agent
+                            systems</span>
+                        <h1 class="hero-anim d2">Viketh</h1>
+                        <div class="role hero-anim d3">Computer Science Student · Building across web, data &amp; AI
+                        </div>
+                        <p class="tag hero-anim d4">I like taking an idea and turning it into something that actually
+                            runs — moving between frontend, backend, databases, and lately, AI and machine learning.
+                            Still a student, still learning, still shipping.</p>
+                        <div class="hero-cta hero-anim d5">
+                            <a href="#projects" class="btn btn-primary">View Projects →</a>
+                            <a href="#contact" class="btn btn-ghost">Get in touch</a>
+                            <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download Resume
+                                ↓</a>
+                        </div>
+                        <div class="social-row hero-anim d6">
+                            <a href="https://github.com/Vik-713" target="_blank" rel="noopener">GitHub ↗</a>
+                            <a href="https://www.linkedin.com/in/viketh-hegde/" target="_blank" rel="noopener">LinkedIn
+                                ↗</a>
+                            <a href="mailto:vikethhegde@gmail.com">Email</a>
+                        </div>
+                    </div>
+                    <div class="signature hero-anim d3" aria-hidden="true">
+                        <canvas id="nodeCanvas"></canvas>
+                    </div>
+                </div>
+
+                <div class="stats-row reveal">
+                    <div class="stat">
+                        <div class="num" data-count="10" data-suffix="+">0</div>
+                        <div class="label">Projects Built</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num" data-static="5th">0</div>
+                        <div class="label">Semester · BTech.CSE</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num" data-count="5">0</div>
+                        <div class="label">Domains Explored</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num" data-static="AI/ML">0</div>
+                        <div class="label">Current Focus</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARQUEE -->
+        <div class="marquee-section">
+            <div class="marquee-row m1">
+                <span>PYTHON</span><span>REACT</span><span>FASTAPI</span><span>POSTGRESQL</span><span>DOCKER</span><span>MACHINE
+                    LEARNING</span><span>REST APIS</span>
+                <span>PYTHON</span><span>REACT</span><span>FASTAPI</span><span>POSTGRESQL</span><span>DOCKER</span><span>MACHINE
+                    LEARNING</span><span>REST APIS</span>
+            </div>
+            <div class="marquee-row m2">
+                <span>NODE.JS</span><span>MONGODB</span><span>GRAPHQL</span><span>RABBITMQ</span><span>NLP</span><span>IOT</span><span>FLASK</span>
+                <span>NODE.JS</span><span>MONGODB</span><span>GRAPHQL</span><span>RABBITMQ</span><span>NLP</span><span>IOT</span><span>FLASK</span>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="wrap">
+                <div class="ghost-wrap">
+                    <div class="ghost-num">02</div>
+                    <div class="sec-label">
+                        <span class="eyebrow">About Me</span>
+                    </div>
+                </div>
+                <div class="about-grid reveal">
+                    <div>
+                        <h2>Learning by building</h2>
+                        <p>I'm a Computer Science student who learns best by building. Over the last couple of years
+                            I've moved through frontend development, backend services, databases, APIs, and more
+                            recently, machine learning, real-time analytics, and IoT — usually by picking a problem
+                            and just trying to make it work.</p>
+                        <p>Right now I'm getting increasingly interested in artificial intelligence, machine
+                            learning, and multi-agent systems — how independent AI agents can coordinate to solve
+                            real problems, and how AI can be applied to messy, real-world data instead of just clean
+                            textbook examples. I'm still figuring a lot of this out. That's kind of the point.</p>
+                    </div>
+                    <div class="focus-box">
+                        <h3>Areas I've worked across</h3>
+                        <div class="tag-list">
+                            <span class="pill">Frontend</span>
+                            <span class="pill">Backend</span>
+                            <span class="pill">Databases</span>
+                            <span class="pill">APIs</span>
+                            <span class="pill">Machine Learning</span>
+                            <span class="pill">Real-Time Systems</span>
+                            <span class="pill">IoT</span>
+                            <span class="pill">Multi-Agent Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNEY -->
+        <section id="journey">
+            <div class="wrap">
+                <div class="ghost-wrap">
+                    <div class="ghost-num">03</div>
+                    <div class="sec-label">
+                        <span class="eyebrow">Journey</span>
+                        <h2>How I got here</h2>
+                        <p>Not a straight line — each project pushed me toward the next thing I didn't know yet.</p>
+                    </div>
+                </div>
+
+                <div class="timeline reveal">
+                    <div class="tl-card">
+                        <div class="tl-top">
+                            <h3>Web Foundations</h3>
+                            <span class="tl-date">Stage 1</span>
+                        </div>
+                        <p class="desc">Started with interfaces — practiced UI/UX by rebuilding the 1mg website in
+                            Figma, then moved into React and Tailwind to build things that actually run in a
+                            browser.</p>
+                        <div class="tag-list"><span class="pill">HTML/CSS/JS</span><span class="pill">React</span><span
+                                class="pill">Figma</span></div>
+                    </div>
+
+                    <div class="tl-card">
+                        <div class="tl-top">
+                            <h3>Backend &amp; APIs</h3>
+                            <span class="tl-date">Stage 2</span>
+                        </div>
+                        <p class="desc">Learned to make the frontend talk to something real — built REST and GraphQL
+                            APIs for a music streaming app, a property-management system, and a parking-management
+                            system.</p>
+                        <div class="tag-list"><span class="pill">Node.js</span><span class="pill">Express</span><span
+                                class="pill">Flask</span><span class="pill">FastAPI</span><span
+                                class="pill">GraphQL</span></div>
+                    </div>
+
+                    <div class="tl-card">
+                        <div class="tl-top">
+                            <h3>Databases &amp; Systems</h3>
+                            <span class="tl-date">Stage 3</span>
+                        </div>
+                        <p class="desc">Started caring about how data is modeled and shipped — worked with
+                            PostgreSQL and MongoDB, used SQLAlchemy for ORM-based design, and containerized services
+                            with Docker.</p>
+                        <div class="tag-list"><span class="pill">PostgreSQL</span><span class="pill">MongoDB</span><span
+                                class="pill">SQLAlchemy</span><span class="pill">Docker</span></div>
+                    </div>
+
+                    <div class="tl-card">
+                        <div class="tl-top">
+                            <h3>Real-Time &amp; Data Systems</h3>
+                            <span class="tl-date">Stage 4</span>
+                        </div>
+                        <p class="desc">Built a real-time URL analytics platform — click events flow through a
+                            RabbitMQ pipeline into MongoDB, with a FastAPI backend and Chart.js dashboards for usage
+                            trends.</p>
+                        <div class="tag-list"><span class="pill">RabbitMQ</span><span
+                                class="pill">Event-Driven</span><span class="pill">Chart.js</span><span
+                                class="pill">Docker</span></div>
+                    </div>
+
+                    <div class="tl-card">
+                        <div class="tl-top">
+                            <h3>AI &amp; Machine Learning<span class="cur">current</span></h3>
+                            <span class="tl-date">Stage 5</span>
+                        </div>
+                        <p class="desc">Now training models instead of just calling them — built a sentiment
+                            analyzer using TF-IDF, logistic regression, and K-means clustering, and I'm reading into
+                            multi-agent systems and how AI can be applied to real-world, real-time problems.</p>
+                        <div class="tag-list"><span class="pill">NLP</span><span class="pill">Sentiment
+                                Analysis</span><span class="pill">Clustering</span><span class="pill">Multi-Agent
+                                Systems</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOOLBOX -->
+        <section class="toolbox">
+            <div class="wrap">
+                <div class="ghost-wrap">
+                    <div class="ghost-num">04</div>
+                    <div class="sec-label">
+                        <span class="eyebrow">Toolbox</span>
+                        <h2>Tools &amp; technologies</h2>
+                        <p>What I reach for depends on the project — here's the current stack.</p>
+                    </div>
+                </div>
+
+                <div class="tabs-shell reveal">
+                    <div class="tabs-bar" id="tabsBar"></div>
+                    <div class="tab-panels" id="tabPanels"></div>
+                    <div class="tab-pagination" id="tabPagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="wrap">
+                <div class="ghost-wrap">
+                    <div class="ghost-num">05</div>
+                    <div class="sec-label">
+                        <span class="eyebrow">Projects</span>
+                        <h2>Things I've built</h2>
+                        <p>A mix of full-stack apps, backend systems, ML experiments, and IoT builds — mostly built
+                            to learn something new.</p>
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web &amp; Backend</button>
+                    <button class="filter-btn" data-filter="ai">AI &amp; ML</button>
+                    <button class="filter-btn" data-filter="data">Data Systems</button>
+                    <button class="filter-btn" data-filter="iot">IoT</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                </div>
+
+                <div class="proj-grid reveal" id="projGrid">
+
+                    <div class="proj-card" data-cat="data" style="--hue:205">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">01</div>
+                            <h3>Real-Time URL Analytics System</h3>
+                            <span class="proj-outcome">Turns raw clicks into live usage trends</span>
+                            <p>An analytics platform for shortened URLs that captures click events — timestamp,
+                                device, browser, location — through a RabbitMQ ingestion pipeline and visualizes
+                                trends on live dashboards.</p>
+                            <div class="proj-tags">
+                                <span>Python</span><span>FastAPI</span><span>RabbitMQ</span><span>MongoDB</span><span>Docker</span><span>Chart.js</span>
+                            </div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="web" style="--hue:265">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">02</div>
+                            <h3>SynapseGrid — Healthcare Management</h3>
+                            <span class="proj-outcome">Backend for patients, admissions &amp; beds</span>
+                            <p>A backend system for managing patients, admissions, and beds. Built the
+                                database-related routes and services in Flask, with PostgreSQL running in Docker.</p>
+                            <div class="proj-tags">
+                                <span>Python</span><span>Flask</span><span>PostgreSQL</span><span>Docker</span>
+                            </div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="web" style="--hue:30">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">03</div>
+                            <h3>Real Estate Property Management API</h3>
+                            <span class="proj-outcome">GraphQL schema for property data</span>
+                            <p>A GraphQL backend for managing property-related data — schema design, resolvers, and a
+                                PostgreSQL data model handled through SQLAlchemy.</p>
+                            <div class="proj-tags"><span>GraphQL</span><span>PostgreSQL</span><span>SQLAlchemy</span>
+                            </div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="ai" style="--hue:150">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">04</div>
+                            <h3>Amazon Review Sentiment Analyzer</h3>
+                            <span class="proj-outcome">Classifies review sentiment at scale</span>
+                            <p>Processes Amazon customer reviews and classifies sentiment using TF-IDF vectorization,
+                                logistic regression, and K-means clustering to group review patterns.</p>
+                            <div class="proj-tags"><span>Python</span><span>TF-IDF</span><span>Logistic
+                                    Regression</span><span>K-Means</span></div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="web" style="--hue:330">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">05</div>
+                            <h3>MUSICAa — Music Streaming App</h3>
+                            <span class="proj-outcome">Full-stack streaming, React + Node</span>
+                            <p>A full-stack music streaming web app with a React frontend and a Node/Express backend,
+                                built to practice how frontend and backend services communicate.</p>
+                            <div class="proj-tags"><span>React</span><span>Node.js</span><span>Express</span></div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="web" style="--hue:190">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">06</div>
+                            <h3>Smart Parking Management System</h3>
+                            <span class="proj-outcome">Tracks parking availability via GraphQL</span>
+                            <p>Manages parking operations and availability through a GraphQL API backed by
+                                PostgreSQL.</p>
+                            <div class="proj-tags"><span>GraphQL</span><span>PostgreSQL</span></div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="web" style="--hue:95">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">07</div>
+                            <h3>P2P Payment Website</h3>
+                            <span class="proj-outcome">Peer-to-peer payments on Firebase</span>
+                            <p>A peer-to-peer payment web app using Firebase for authentication, data storage, and
+                                backend logic.</p>
+                            <div class="proj-tags"><span>Firebase</span><span>JavaScript</span></div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="iot" style="--hue:45">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">08</div>
+                            <h3>Smart Street Light</h3>
+                            <span class="proj-outcome">Ambient-light-triggered automation</span>
+                            <p>An automatic street-light system that uses an ESP8266 and LDR sensor to detect ambient
+                                light and switch the light accordingly.</p>
+                            <div class="proj-tags"><span>ESP8266</span><span>LDR Sensor</span></div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="iot" style="--hue:280">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">09</div>
+                            <h3>Smart Appliance Switch</h3>
+                            <span class="proj-outcome">Remote appliance control via Alexa</span>
+                            <p>An ESP8266 and relay-based smart-home switch for controlling appliances remotely, with
+                                Alexa and Sinric Pro integration.</p>
+                            <div class="proj-tags"><span>ESP8266</span><span>Relay Module</span><span>Alexa</span>
+                            </div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                    <div class="proj-card" data-cat="design" style="--hue:355">
+                        <div class="proj-blob">
+                            <div class="mini-ui"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="proj-body">
+                            <div class="idx">10</div>
+                            <h3>1mg UI Replica</h3>
+                            <span class="proj-outcome">Interface design practice in Figma</span>
+                            <p>A UI/UX recreation of the 1mg website in Figma, done to practice interface design,
+                                spacing, and prototyping fundamentals.</p>
+                            <div class="proj-tags"><span>Figma</span><span>UI/UX</span></div>
+                            <div class="proj-footer"><a href="https://github.com/Vik-713" target="_blank" rel="noopener"
+                                    class="proj-gh">GitHub ↗</a></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- NOW -->
+        <section id="now">
+            <div class="wrap">
+                <div class="ghost-wrap right">
+                    <div class="ghost-num">06</div>
+                    <div class="sec-label">
+                        <span class="eyebrow">Now</span>
+                        <h2>What I'm exploring next</h2>
+                        <p>The stuff I'm reading about and tinkering with outside of coursework right now.</p>
+                    </div>
+                </div>
+                <div class="now-grid reveal">
+                    <div class="now-card">
+                        <span class="tick">AI &amp; Multi-Agent Systems</span>
+                        <h3>Agents that coordinate</h3>
+                        <p>Moving past single-model calls toward understanding how multiple AI agents can plan,
+                            delegate, and work together on a task.</p>
+                    </div>
+                    <div class="now-card">
+                        <span class="tick">Real-Time Data</span>
+                        <h3>Systems that react instantly</h3>
+                        <p>Digging deeper into event-driven architecture and streaming pipelines, building on what I
+                            learned from the URL analytics project.</p>
+                    </div>
+                    <div class="now-card">
+                        <span class="tick">Applied AI</span>
+                        <h3>AI for real decisions</h3>
+                        <p>Interested in using AI on messy, real-world data — like the real-estate evaluation concept
+                            — rather than clean, pre-packaged datasets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="wrap">
+                <div class="ghost-wrap">
+                    <div class="ghost-num">07</div>
+                    <div class="sec-label"><span class="eyebrow">Contact</span></div>
+                </div>
+
+                <div class="contact-head reveal">
+                    <h2>let's talk</h2>
+                    <p>Open to internships, collaborations, or just a conversation about AI, systems, or something
+                        you're building. Reach out — I reply pretty quickly.</p>
+                    <div class="contact-social">
+                        <a href="mailto:vikethhegde@gmail.com">Email ↗</a>
+                        <a href="https://github.com/Vik-713" target="_blank" rel="noopener">GitHub ↗</a>
+                        <a href="https://www.linkedin.com/in/viketh-hegde/" target="_blank" rel="noopener">LinkedIn
+                            ↗</a>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="reveal">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your name" required>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+                    </div>
+                    <div class="submit-row">
+                        <button type="submit" class="submit-circle" id="submitBtn" aria-label="Send message">↑</button>
+                        <p class="form-note" id="formNote">Sends straight to my inbox — usually reply within a day or
+                            two.</p>
+                    </div>
+                </form>
+
+                <div class="signature-divider"><span>Viketh</span></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <div>© 2026 Viketh — built with curiosity.</div>
+            <div>Designed &amp; built with care.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
