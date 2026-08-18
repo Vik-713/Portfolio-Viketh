@@ -1,4 +1,4 @@
-// mobile nav toggle placeholder link -> smooth scroll already via CSS
+// smooth scroll for in-page nav links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         const id = a.getAttribute('href');
@@ -9,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 });
 
-// project filter
+// project category filter
 const buttons = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.proj-card');
 buttons.forEach(btn => {
@@ -23,10 +23,44 @@ buttons.forEach(btn => {
     });
 });
 
+// toolbox — tabbed panel with pagination
+const TOOL_CATEGORIES = [
+    { name: 'Programming', items: ['Python', 'JavaScript', 'SQL', 'HTML / CSS'] },
+    { name: 'Frontend', items: ['React', 'Tailwind CSS', 'Figma'] },
+    { name: 'Backend', items: ['Node.js / Express', 'FastAPI · Uvicorn', 'Flask', 'REST & GraphQL'] },
+    { name: 'Databases', items: ['PostgreSQL', 'MongoDB', 'Firebase', 'SQLAlchemy'] },
+    { name: 'AI / ML', items: ['Logistic Regression', 'TF-IDF', 'K-Means Clustering', 'NLP · Multi-Agent (exploring)'] },
+    { name: 'Data & Real-Time', items: ['RabbitMQ', 'Event Ingestion', 'Analytics Pipelines'] },
+    { name: 'Dev Tools', items: ['Git & GitHub', 'Docker', 'Docker Compose'] },
+    { name: 'IoT', items: ['ESP8266', 'Sensors & Servos', 'Sinric Pro · Alexa'] }
+];
+
+const tabsBar = document.getElementById('tabsBar');
+const tabPanels = document.getElementById('tabPanels');
+const tabPagination = document.getElementById('tabPagination');
+
+TOOL_CATEGORIES.forEach((cat, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = String(i + 1).padStart(2, '0');
+    btn.title = cat.name;
+    btn.addEventListener('click', () => showTab(i));
+    tabsBar.appendChild(btn);
+
+    const panel = document.createElement('div');
+    panel.className = 'tab-panel' + (i === 0 ? ' active' : '');
+    panel.innerHTML = `<ul>${cat.items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+    tabPanels.appendChild(panel);
+});
+
+function showTab(index) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === index));
+    document.querySelectorAll('.tab-panel').forEach((p, i) => p.classList.toggle('active', i === index));
+    tabPagination.innerHTML = `<span>${String(index + 1).padStart(2, '0')}</span> / ${String(TOOL_CATEGORIES.length).padStart(2, '0')} — ${TOOL_CATEGORIES[index].name}`;
+}
+showTab(0);
+
 // contact form -> sends to your inbox via Formspree (https://formspree.io)
-// 1. Create a free account at formspree.io and verify the email you want messages sent to.
-// 2. Create a new form there — it gives you a form ID like "xyzabcde".
-// 3. Replace YOUR_FORM_ID below with that ID.
 const FORMSPREE_ID = 'mdenlgab';
 
 const contactForm = document.getElementById('contactForm');
@@ -36,12 +70,6 @@ const formNote = document.getElementById('formNote');
 contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
-        formNote.textContent = 'Form not connected yet — add your Formspree form ID in the code to enable real sending.';
-        formNote.className = 'form-note error';
-        return;
-    }
-
     const data = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
@@ -49,7 +77,7 @@ contactForm.addEventListener('submit', async function (e) {
     };
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
+    submitBtn.textContent = '…';
     formNote.textContent = '';
     formNote.className = 'form-note';
 
@@ -62,26 +90,25 @@ contactForm.addEventListener('submit', async function (e) {
 
         if (res.ok) {
             contactForm.reset();
-            submitBtn.textContent = 'Message sent →';
+            submitBtn.textContent = '✓';
             formNote.textContent = "Thanks — I'll get back to you soon.";
             formNote.className = 'form-note success';
-            setTimeout(() => { submitBtn.textContent = 'Send message →'; submitBtn.disabled = false; }, 2500);
+            setTimeout(() => { submitBtn.textContent = '↑'; submitBtn.disabled = false; }, 2200);
         } else {
             throw new Error('Request failed');
         }
     } catch (err) {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message →';
+        submitBtn.textContent = '↑';
         formNote.textContent = 'Something went wrong — please try again, or email me directly.';
         formNote.className = 'form-note error';
     }
 });
 
-// scroll-triggered reveals
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const prefersReducedMotion = reduceMotion;
-const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
-if (reduceMotion) {
+// single, restrained scroll-reveal (fade/slide-up on section entry — no per-card stagger)
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('.reveal');
+if (prefersReducedMotion) {
     revealEls.forEach(el => el.classList.add('in-view'));
 } else {
     const io = new IntersectionObserver((entries) => {
@@ -91,7 +118,7 @@ if (reduceMotion) {
                 io.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => io.observe(el));
 }
 
@@ -112,7 +139,7 @@ function animateCount(el) {
 document.querySelectorAll('.stat .num').forEach(el => {
     if (el.dataset.static) { el.textContent = el.dataset.static; }
 });
-if (reduceMotion) {
+if (prefersReducedMotion) {
     document.querySelectorAll('.stat .num[data-count]').forEach(el => {
         el.textContent = el.dataset.count + (el.dataset.suffix || '');
     });
@@ -129,7 +156,9 @@ if (reduceMotion) {
     if (statsRow) statObserver.observe(statsRow);
 }
 
-// node-graph signature — 3D version (multi-agent motif) via Three.js
+// node-graph signature — slow auto-rotating 3D network (multi-agent motif)
+// Note: the theme brief calls for "no cursor-follow effects", so unlike earlier
+// versions this no longer tilts toward the mouse — it just turns steadily.
 (function () {
     const canvas = document.getElementById('nodeCanvas');
     const container = canvas ? canvas.parentElement : null;
@@ -167,13 +196,13 @@ if (reduceMotion) {
         nodePositions.push(new THREE.Vector3(Math.cos(theta) * r * radius, y * radius, Math.sin(theta) * r * radius));
     }
 
-    const signalColor = 0x3654ff;
-    const amberColor = 0xff8a3d;
-    const inkColor = 0x2a2e37;
+    // theme-matched palette: accent blue + a muted ink tone, no amber
+    const blueColor = 0x7cc3f0;
+    const inkColor = 0x5c5c60;
 
-    const sphereGeo = new THREE.SphereGeometry(0.09, 16, 16);
+    const sphereGeo = new THREE.SphereGeometry(0.08, 16, 16);
     nodePositions.forEach((pos, i) => {
-        const color = i % 4 === 0 ? amberColor : (i % 3 === 0 ? signalColor : inkColor);
+        const color = i % 3 === 0 ? blueColor : inkColor;
         const mesh = new THREE.Mesh(sphereGeo, new THREE.MeshBasicMaterial({ color }));
         mesh.position.copy(pos);
         group.add(mesh);
@@ -181,7 +210,7 @@ if (reduceMotion) {
 
     // connect each node to its nearest neighbors so it reads as a network
     const K = 3;
-    const lineMat = new THREE.LineBasicMaterial({ color: signalColor, transparent: true, opacity: 0.32 });
+    const lineMat = new THREE.LineBasicMaterial({ color: blueColor, transparent: true, opacity: 0.28 });
     const seenEdges = new Set();
     nodePositions.forEach((a, i) => {
         const byDistance = nodePositions
@@ -197,43 +226,13 @@ if (reduceMotion) {
         }
     });
 
-    // mouse parallax tilt
-    let targetTiltX = 0, targetTiltY = 0;
-    container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        const mx = (e.clientX - rect.left) / rect.width - 0.5;
-        const my = (e.clientY - rect.top) / rect.height - 0.5;
-        targetTiltY = mx * 0.6;
-        targetTiltX = -my * 0.6;
-    });
-    container.addEventListener('mouseleave', () => { targetTiltX = 0; targetTiltY = 0; });
-
-    let spin = 0;
     function animate() {
         requestAnimationFrame(animate);
-        if (!prefersReducedMotion) spin += 0.0025;
-        group.rotation.y += ((spin + targetTiltY) - group.rotation.y) * 0.05;
-        group.rotation.x += (targetTiltX - group.rotation.x) * 0.05;
+        if (!prefersReducedMotion) {
+            group.rotation.y += 0.0016;
+            group.rotation.x += 0.0004;
+        }
         renderer.render(scene, camera);
     }
     animate();
 })();
-
-// 3D tilt on hover for project and "now" cards
-if (!prefersReducedMotion) {
-    function apply3DTilt(selector, maxDeg, scale) {
-        document.querySelectorAll(selector).forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const px = (e.clientX - rect.left) / rect.width;
-                const py = (e.clientY - rect.top) / rect.height;
-                const rotY = (px - 0.5) * maxDeg;
-                const rotX = -(py - 0.5) * maxDeg;
-                card.style.transform = `perspective(700px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
-            });
-            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-        });
-    }
-    apply3DTilt('.proj-card', 5, 1.015);
-    apply3DTilt('.now-card', 7, 1.03);
-}
