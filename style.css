@@ -443,15 +443,15 @@ header.nav {
 .stat {
     padding: 24px 20px;
     border-right: 1px solid var(--line);
-}
+}-family
 
 .stat:last-child {
     border-right: none;
 }
 
 .stat .num {
-    font-family: var(--serif);
-    font-style: italic;
+    font-family: var(--sans);
+    font-style: normal;
     font-size: clamp(24px, 3vw, 32px);
     font-weight: 600;
     color: var(--blue);
