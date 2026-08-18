@@ -16,7 +16,9 @@ A single-page portfolio built the same way I build most things — pick an idea,
 ```
 ├── index.html   → the page
 ├── style.css    → the look
-└── script.js    → the behavior
+├── script.js    → the behavior
+└── resume.js.   → the resume
+
 ```
 
 Three files, one page, zero build step. Open `index.html` and it just works — keep all three in the same folder.
