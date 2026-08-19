@@ -44,6 +44,7 @@ const About = () => {
         >
           EMAIL <ArrowUpRight className="w-4 h-4" />
         </a>
+        
       </div>
 
       {/* Resume Button */}

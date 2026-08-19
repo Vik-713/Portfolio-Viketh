@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Award } from 'lucide-react';
+
 import Hero from './components/Hero';
 import About from './components/About';
 import Ticker from './components/Ticker';
@@ -48,11 +48,6 @@ const App = () => {
   const tickerSkills = ["PYTHON", "JAVASCRIPT", "SQL", "REACT", "TAILWIND CSS", "FASTAPI", "FLASK", "POSTGRESQL", "MONGODB", "DOCKER"];
   const tickerFocus = ["MACHINE LEARNING", "MULTI-AGENT SYSTEMS", "REAL-TIME SYSTEMS", "REST APIS", "GRAPHQL", "IOT"];
 
-  const certifications = [
-    { title: "[Add certification title]", issuer: "[Issuer]", date: "[Month Year]" },
-    { title: "[Add certification title]", issuer: "[Issuer]", date: "[Month Year]" },
-    { title: "[Add certification title]", issuer: "[Issuer]", date: "[Month Year]" }
-  ];
 
   return (
     <div className="w-full min-h-screen bg-white text-black relative font-sans overflow-x-hidden">
@@ -109,51 +104,6 @@ const App = () => {
         <NextSection />
       </ScrollReveal>
 
-      {/* Certifications Section */}
-      <ScrollReveal>
-        <InteractiveString />
-        <section id="certification" className="min-h-[80vh] bg-gray-50 px-6 sm:px-12 md:px-24 py-16 flex flex-col justify-center">
-          {/* Title */}
-          <div className="mb-10">
-            <h2 className="font-akira text-2xl sm:text-4xl md:text-5xl lg:text-7xl text-black">
-              <ScrambleText text="CERTIFICATIONS" />
-            </h2>
-            <p className="font-clash text-sm sm:text-base md:text-lg text-gray-500 font-medium mt-2 max-w-3xl">
-              I’m certified in skills that strengthen real-world development.
-            </p>
-          </div>
-
-          {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {certifications.map((cert, idx) => (
-              <div 
-                key={idx} 
-                className="border-3 border-black p-6 rounded-2xl flex flex-col justify-between gap-4 bg-white hover:bg-slate-50 transition-all duration-200"
-              >
-                <div className="flex flex-col gap-4">
-                  {/* Badge Icon */}
-                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
-                    <Award className="w-6 h-6 text-white" />
-                  </div>
-                  {/* Title & Issuer */}
-                  <div className="text-black">
-                    <h3 className="text-base sm:text-lg font-clash font-bold leading-tight">
-                      {cert.title}
-                    </h3>
-                    <p className="text-sm font-clash font-medium text-gray-500 mt-1">
-                      {cert.issuer}
-                    </p>
-                  </div>
-                </div>
-                {/* Date */}
-                <p className="text-xs font-clash font-bold tracking-wider text-gray-400">
-                  {cert.date}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </ScrollReveal>
 
       {/* Contact Section */}
       <ScrollReveal>
@@ -203,6 +153,12 @@ const App = () => {
               className="text-white hover:text-gray-300 font-akira text-sm sm:text-base md:text-lg transition-transform duration-200 hover:-translate-x-1"
             >
               EMAIL
+            </a>
+            <a 
+              href="tel:+919769227615" 
+              className="text-white hover:text-gray-300 font-akira text-sm sm:text-base md:text-lg transition-transform duration-200 hover:-translate-x-1"
+            >
+              Mobile No.
             </a>
           </div>
         </div>
