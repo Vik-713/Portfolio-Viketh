@@ -122,12 +122,12 @@ const Contact = () => {
             />
           </div>
 
-          {/* Submit Button */}
-          <div className="mt-2">
+          {/* Submit Button & Info Text */}
+          <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-4">
             <button 
               type="submit"
               disabled={status === 'submitting'}
-              className={`group inline-flex items-center justify-center p-3 px-6 gap-2 cursor-none text-black text-sm font-clash font-medium tracking-wider border-3 border-black transition-all duration-150 rounded-full font-akira disabled:bg-gray-150 disabled:border-gray-300 disabled:text-gray-400 ${
+              className={`group inline-flex items-center justify-center p-3 px-6 gap-2 cursor-none text-black text-sm font-clash font-medium tracking-wider border-3 border-black transition-all duration-150 rounded-full font-akira disabled:bg-gray-150 disabled:border-gray-300 disabled:text-gray-400 shrink-0 ${
                 status === 'success' ? 'bg-emerald-500 text-white border-emerald-500' : 
                 status === 'error' ? 'bg-rose-500 text-white border-rose-500' : 'hover:bg-black hover:text-white'
               }`}
@@ -141,6 +141,10 @@ const Contact = () => {
                 </span>
               </span>
             </button>
+            <p className="font-google-sans text-xs text-gray-500 leading-normal max-w-[280px] sm:max-w-none">
+              <span className="hidden sm:inline">←</span>
+              <span className="inline sm:hidden">↑</span> Sends straight to my inbox — usually reply within a day or two.
+            </p>
           </div>
         </form>
 
