@@ -18,6 +18,42 @@ const Assistant = () => {
     scrollToBottom();
   }, [messages, isLoading]);
 
+  // Lock body scroll and pause Lenis when Assistant drawer is open
+  useEffect(() => {
+    if (window.lenis) {
+      if (isOpen) {
+        window.lenis.stop();
+      } else {
+        window.lenis.start();
+      }
+    }
+
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      if (window.lenis) {
+        window.lenis.start();
+      }
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Helper to render markdown bold tags (**) as strong JSX elements
+  const renderMessageContent = (content) => {
+    if (!content) return '';
+    const parts = content.split('**');
+    return parts.map((part, index) => {
+      if (index % 2 === 1) {
+        return <strong key={index} className="font-semibold font-clash text-black">{part}</strong>;
+      }
+      return part;
+    });
+  };
+
   const handleSend = (text) => {
     if (!text.trim() || isLoading) return;
 
@@ -119,7 +155,10 @@ const Assistant = () => {
             </div>
 
             {/* Chat Body */}
-            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 custom-scrollbar">
+            <div 
+              data-lenis-prevent
+              className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 custom-scrollbar"
+            >
               {/* Quick Suggestion Pills */}
               {messages.length === 1 && (
                 <div className="flex flex-col gap-2 mb-2">
@@ -157,7 +196,7 @@ const Assistant = () => {
                         : 'bg-gray-100 text-black'
                     }`}
                   >
-                    {msg.content}
+                    {renderMessageContent(msg.content)}
                   </div>
                 </div>
               ))}
