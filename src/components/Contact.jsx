@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ScrambleText from './ScrambleText';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -57,12 +58,12 @@ const Contact = () => {
   return (
     <div 
       id="contact" 
-      className="border-t border-gray-200 w-full min-h-screen px-6 sm:px-12 md:px-24 py-16 flex flex-col justify-center select-none bg-white"
+      className="w-full min-h-screen px-6 sm:px-12 md:px-24 py-16 flex flex-col justify-center select-none bg-white"
     >
       {/* Title */}
       <div className="mb-10">
         <h2 className="font-akira text-2xl sm:text-4xl md:text-5xl lg:text-7xl text-black">
-          CONTACT ME
+          <ScrambleText text="CONTACT ME" />
         </h2>
         <p className="font-clash text-sm sm:text-base md:text-lg text-gray-500 font-medium mt-2 max-w-3xl">
           Let's talk — open to internships, collaborations, or a conversation about AI, systems, or something you're building.

@@ -15,7 +15,10 @@ const ScrollReveal = ({ children }) => {
           }
         });
       },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
+      { 
+        threshold: 0.05, 
+        rootMargin: '0px 0px -100px 0px' // Delay trigger until element is 100px inside viewport
+      }
     );
 
     if (domRef.current) {
@@ -32,8 +35,8 @@ const ScrollReveal = ({ children }) => {
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
       }`}
     >
       {children}

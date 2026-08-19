@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import ScrambleText from './ScrambleText';
 
 const About = () => {
   return (
@@ -9,7 +10,7 @@ const About = () => {
     >
       {/* Title */}
       <h2 className="font-akira text-2xl md:text-4xl lg:text-5xl text-black text-center mb-8">
-        ABOUT ME
+        <ScrambleText text="ABOUT ME" />
       </h2>
 
       {/* Bio Statement */}

@@ -12,6 +12,8 @@ import CustomCursor from './components/CustomCursor';
 import ScrollReveal from './components/ScrollReveal';
 import NextSection from './components/NextSection';
 import Preloader from './components/Preloader';
+import InteractiveString from './components/InteractiveString';
+import ScrambleText from './components/ScrambleText';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,6 +51,7 @@ const App = () => {
 
       {/* Journey Section (Reordered before projects) */}
       <ScrollReveal>
+        <InteractiveString />
         <Journey />
       </ScrollReveal>
 
@@ -57,7 +60,8 @@ const App = () => {
 
       {/* Quote Section */}
       <ScrollReveal>
-        <div id="quote" className="min-h-[60vh] flex flex-col items-center justify-center px-6 py-16 bg-white border-t border-black/5">
+        <InteractiveString />
+        <div id="quote" className="min-h-[60vh] flex flex-col items-center justify-center px-6 py-16 bg-white">
           <div className="flex flex-col gap-2 font-akira text-2xl sm:text-4xl md:text-5xl lg:text-7xl leading-none text-black text-center uppercase tracking-wide">
             <div className="animate-reveal">I BUILD THINGS TO</div>
             <div className="animate-reveal [animation-delay:0.2s]">UNDERSTAND THEM,</div>
@@ -81,11 +85,12 @@ const App = () => {
 
       {/* Certifications Section */}
       <ScrollReveal>
-        <section id="certification" className="min-h-[80vh] bg-gray-50 px-6 sm:px-12 md:px-24 py-16 border-t border-black/5 flex flex-col justify-center">
+        <InteractiveString />
+        <section id="certification" className="min-h-[80vh] bg-gray-50 px-6 sm:px-12 md:px-24 py-16 flex flex-col justify-center">
           {/* Title */}
           <div className="mb-10">
             <h2 className="font-akira text-2xl sm:text-4xl md:text-5xl lg:text-7xl text-black">
-              CERTIFICATIONS
+              <ScrambleText text="CERTIFICATIONS" />
             </h2>
             <p className="font-clash text-sm sm:text-base md:text-lg text-gray-500 font-medium mt-2 max-w-3xl">
               I’m certified in skills that strengthen real-world development.
@@ -126,6 +131,7 @@ const App = () => {
 
       {/* Contact Section */}
       <ScrollReveal>
+        <InteractiveString />
         <Contact />
       </ScrollReveal>
 

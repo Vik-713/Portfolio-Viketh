@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrambleText from './ScrambleText';
 
 const JOURNEY_STEPS = [
   {
@@ -37,12 +38,12 @@ const Journey = () => {
   return (
     <div 
       id="experiences" 
-      className="bg-slate-50 grid grid-cols-1 lg:grid-cols-3 items-start py-10 sm:py-14 px-6 sm:px-12 md:px-24 gap-8 border-t border-black/5"
+      className="bg-slate-50 grid grid-cols-1 lg:grid-cols-3 items-start py-10 sm:py-14 px-6 sm:px-12 md:px-24 gap-8"
     >
       {/* Left Column: Sticky Title */}
       <div className="lg:sticky lg:top-8 flex flex-col gap-3 lg:col-span-1">
         <h2 className="font-akira text-2xl sm:text-3xl md:text-4xl text-black leading-none uppercase">
-          JOURNEY
+          <ScrambleText text="JOURNEY" />
         </h2>
         <p className="font-clash text-gray-500 font-medium text-xs sm:text-sm md:text-base leading-relaxed">
           My learning path as a Computer Science student. Moving from frontend interfaces to complex backend APIs, message pipelines, databases, and applied machine learning.

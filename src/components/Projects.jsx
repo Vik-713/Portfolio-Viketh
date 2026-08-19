@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import ScrambleText from './ScrambleText';
 
 const PROJECTS = [
   {
@@ -184,7 +185,7 @@ const Projects = () => {
       {/* Title block */}
       <div className="border-b border-white/10 pb-6">
         <h2 className="font-akira text-2xl sm:text-4xl md:text-5xl lg:text-7xl text-white">
-          PROJECTS !
+          <ScrambleText text="PROJECTS" />
         </h2>
         <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-2">
           <p className="font-clash text-sm sm:text-base md:text-lg text-gray-400 font-medium">
