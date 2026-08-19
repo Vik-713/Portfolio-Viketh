@@ -1,36 +1,16 @@
-# Viketh — Portfolio
+# React + Vite
 
-**Live:** [portfolio-viketh-two.vercel.app](https://portfolio-viketh-two.vercel.app/)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-[![Portfolio preview](https://api.microlink.io/?url=https://portfolio-viketh-two.vercel.app/&screenshot=true&meta=false&embed=screenshot.url)](https://portfolio-viketh-two.vercel.app/)
+Currently, two official plugins are available:
 
-```
-$ whoami
-Computer Science student. Still compiling.
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-A single-page portfolio built the same way I build most things — pick an idea, wire it up, see if it holds. This one's a "builder's lab notebook": warm paper background, an indigo signal accent, and a small animated node-graph in the hero that's a quiet nod to the multi-agent systems I've been reading about lately.
+## React Compiler
 
-## Structure
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-```
-├── index.html   → the page
-├── style.css    → the look
-├── script.js    → the behavior
-└── resume.js.   → the resume
+## Expanding the ESLint configuration
 
-```
-
-Three files, one page, zero build step. Open `index.html` and it just works — keep all three in the same folder.
-
-## What's inside
-
-- A **learning journey** section styled like a git log — because the path here really was commit by commit: web → backend → databases → real-time systems → AI/ML *(current)*
-- A **toolbox** of everything from Python and React to ESP8266 and RabbitMQ
-- **12 projects**, filterable by category, spanning full-stack apps, ML experiments, and IoT builds
-- A **contact form** wired to Formspree — no backend, but it still reaches an inbox
-- Scroll-triggered reveals, a staggered hero load-in, and a floating node-graph — motion that respects `prefers-reduced-motion` for anyone who'd rather the page hold still
-
-## Status
-
-`#05 · HEAD` — actively learning, actively shipping.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

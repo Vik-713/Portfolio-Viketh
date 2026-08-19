@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+@theme {
+  --font-akira: "Akira", sans-serif;
+  --font-clash: "Clash Display", sans-serif;
+  --font-google-sans: "Google Sans", sans-serif;
+
+  --color-background: #ffffff;
+  --color-background-secondary: #f9fafb;
+}
+/* Custom cursor styling - hides system cursor on desktop */
+@media (pointer: fine) {
+  *, a, button, input, textarea, select, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Menu Pill entrance animations */
+@keyframes menuPillEntrance {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--item-rot)) scale(0.8) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(var(--item-rot)) scale(1) translateY(0);
+  }
+}
+
+.animate-menu-pill {
+  animation: menuPillEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+@media (max-width: 899px) {
+  @keyframes menuPillEntranceMobile {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  .animate-menu-pill {
+    animation: menuPillEntranceMobile 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+/* Custom transitions and scrollbar overrides */
+.bubble-menu .menu-line {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Ticker marquee animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 25s linear infinite reverse;
+}
+
+/* Menu pill links customization */
+@media (min-width: 900px) {
+  .bubble-menu-items .pill-link {
+    transform: rotate(var(--item-rot));
+  }
+
+  .bubble-menu-items .pill-link:hover {
+    transform: rotate(var(--item-rot)) scale(1.06);
+    background: var(--hover-bg) !important;
+    color: var(--hover-color) !important;
+  }
+
+  .bubble-menu-items .pill-link:active {
+    transform: rotate(var(--item-rot)) scale(.94);
+  }
+}
+
+@media (max-width: 899px) {
+  .bubble-menu-items {
+    padding-top: 120px;
+    align-items: flex-start;
+  }
+
+  .bubble-menu-items .pill-list {
+    row-gap: 16px;
+  }
+
+  .bubble-menu-items .pill-list .pill-col {
+    flex: 0 0 100% !important;
+    margin-left: 0 !important;
+    overflow: visible;
+  }
+
+  .bubble-menu-items .pill-link {
+    font-size: clamp(1.2rem, 3vw, 4rem);
+    padding: clamp(1rem, 2vw, 2rem) 0;
+    min-height: 80px !important;
+  }
+
+  .bubble-menu-items .pill-link:hover {
+    transform: scale(1.06);
+    background: var(--hover-bg);
+    color: var(--hover-color);
+  }
+
+  .bubble-menu-items .pill-link:active {
+    transform: scale(.94);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Cursor style to match clean look */
+.cursor-none {
+  cursor: default;
+}
