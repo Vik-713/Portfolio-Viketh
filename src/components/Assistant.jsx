@@ -121,11 +121,11 @@ const Assistant = () => {
       {/* Floating Chat Bubble Button */}
       <button
         type="button"
-        className="bubble menu-btn inline-flex flex-col items-center justify-center rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] pointer-events-auto w-12 h-12 md:w-14 md:h-14 border-0 cursor-pointer p-0 will-change-transform transition-all hover:rotate-45 z-[1001]"
+        className="bubble menu-btn inline-flex flex-col items-center justify-center rounded-full bg-black shadow-[0_4px_16px_rgba(0,0,0,0.2)] pointer-events-auto w-12 h-12 md:w-14 md:h-14 border-0 cursor-pointer p-0 will-change-transform transition-all hover:rotate-45 z-[1001]"
         onClick={() => setIsOpen(true)}
         aria-label="Open assistant chat"
       >
-        <MessageCircleMore className="w-6 h-6 text-black" />
+        <MessageCircleMore className="w-6 h-6 text-white" />
       </button>
 
       {/* Drawer Overlay */}

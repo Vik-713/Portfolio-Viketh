@@ -35,13 +35,13 @@ const Menu = ({ isOpen, setIsOpen }) => {
       {/* Floating Menu Toggle Button */}
       <button
         type="button"
-        className="menu-btn bubble toggle-bubble inline-flex flex-col items-center justify-center rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] pointer-events-auto w-12 h-12 md:w-14 md:h-14 border-0 cursor-pointer p-0 will-change-transform z-[1001] hover:scale-110 hover:rotate-12 hover:shadow-[0_6px_20px_rgba(0,0,0,0.18)] active:scale-95 transition-all duration-300 ease-out"
+        className="menu-btn bubble toggle-bubble inline-flex flex-col items-center justify-center rounded-full bg-black shadow-[0_4px_16px_rgba(0,0,0,0.2)] pointer-events-auto w-12 h-12 md:w-14 md:h-14 border-0 cursor-pointer p-0 will-change-transform z-[1001] hover:scale-110 hover:rotate-12 hover:shadow-[0_6px_20px_rgba(0,0,0,0.25)] active:scale-95 transition-all duration-300 ease-out"
         onClick={toggleMenu}
         aria-label="Toggle navigation menu"
         aria-pressed={isOpen}
       >
         <span
-          className="menu-line block mx-auto rounded-[2px] bg-black transition-all duration-300"
+          className="menu-line block mx-auto rounded-[2px] bg-white transition-all duration-300"
           style={{
             width: 24,
             height: 2,
@@ -49,7 +49,7 @@ const Menu = ({ isOpen, setIsOpen }) => {
           }}
         />
         <span
-          className="menu-line short block mx-auto rounded-[2px] bg-black transition-all duration-300"
+          className="menu-line short block mx-auto rounded-[2px] bg-white transition-all duration-300"
           style={{
             marginTop: "6px",
             width: 24,
