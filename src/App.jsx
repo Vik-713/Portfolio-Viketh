@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Hero from './components/Hero';
 import About from './components/About';
+import Skills from './components/Skills';
 import Ticker from './components/Ticker';
 import Projects from './components/Projects';
 import Journey from './components/Journey';
@@ -68,6 +69,12 @@ const App = () => {
       {/* About Section */}
       <ScrollReveal>
         <About />
+      </ScrollReveal>
+
+      {/* Skills Section */}
+      <ScrollReveal>
+        <InteractiveString />
+        <Skills />
       </ScrollReveal>
 
       {/* Journey Section (Reordered before projects) */}
