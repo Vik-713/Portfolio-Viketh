@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Award } from 'lucide-react';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -14,10 +14,36 @@ import NextSection from './components/NextSection';
 import Preloader from './components/Preloader';
 import InteractiveString from './components/InteractiveString';
 import ScrambleText from './components/ScrambleText';
+import Lenis from 'lenis';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.8, // Slightly slower scroll animation (default is 1.2)
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smooth ease-out expo
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.9, // Lower multiplier for a slightly slower and heavier gliding feel
+    });
+
+    window.lenis = lenis;
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      window.lenis = null;
+    };
+  }, []);
 
   const tickerSkills = ["PYTHON", "JAVASCRIPT", "SQL", "REACT", "TAILWIND CSS", "FASTAPI", "FLASK", "POSTGRESQL", "MONGODB", "DOCKER"];
   const tickerFocus = ["MACHINE LEARNING", "MULTI-AGENT SYSTEMS", "REAL-TIME SYSTEMS", "REST APIS", "GRAPHQL", "IOT"];

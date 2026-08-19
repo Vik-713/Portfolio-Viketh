@@ -18,7 +18,15 @@ const Menu = ({ isOpen, setIsOpen }) => {
     
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      if (window.lenis) {
+        window.lenis.scrollTo(targetElement, {
+          offset: 0,
+          duration: 1.8,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+      } else {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
