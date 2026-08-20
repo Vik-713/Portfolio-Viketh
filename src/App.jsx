@@ -210,12 +210,7 @@ const App = () => {
             >
               EMAIL
             </a>
-            <a 
-              href="tel:+919769227615" 
-              className="text-white hover:text-gray-300 font-akira text-sm sm:text-base md:text-lg transition-transform duration-200 hover:-translate-x-1"
-            >
-              Mobile No.
-            </a>
+          
           </div>
         </div>
 
