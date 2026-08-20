@@ -78,7 +78,7 @@ const App = () => {
         <Skills />
       </ScrollReveal>
 
-      {/* Journey Section (Reordered before projects) */}
+      {/* Journey Section */}
       <ScrollReveal>
         <InteractiveString />
         <Journey />
@@ -99,7 +99,7 @@ const App = () => {
         </div>
       </ScrollReveal>
 
-      {/* Ticker Bar 2 (Focus Areas) */}
+      {/* Ticker Bar Focus Areas */}
       <Ticker items={tickerFocus} separator="✦" reverse={true} />
 
       {/* Projects Section */}
@@ -107,7 +107,7 @@ const App = () => {
         <Projects />
       </ScrollReveal>
 
-      {/* Exploring Next Section (New section after projects) */}
+      {/* Exploring Next Section*/}
       <ScrollReveal>
         <NextSection />
       </ScrollReveal>
