@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Award } from 'lucide-react';
 
 import Hero from './components/Hero';
 import About from './components/About';
@@ -109,6 +110,54 @@ const App = () => {
       {/* Exploring Next Section (New section after projects) */}
       <ScrollReveal>
         <NextSection />
+      </ScrollReveal>
+
+      {/* Certifications Section */}
+      <ScrollReveal>
+        <InteractiveString />
+        <section id="certification" className="min-h-[50vh] bg-slate-50 px-6 sm:px-12 md:px-24 py-16 md:py-24 flex flex-col justify-center select-none">
+          {/* Title */}
+          <div className="mb-12">
+            <h2 className="font-akira text-2xl sm:text-4xl md:text-5xl lg:text-7xl text-black">
+              <ScrambleText text="CERTIFICATIONS" />
+            </h2>
+            <p className="font-clash text-sm sm:text-base md:text-lg text-gray-500 font-medium mt-2 max-w-3xl">
+              Professional and technical certifications verifying my expertise in software systems.
+            </p>
+          </div>
+
+          {/* Certifications Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a 
+              href="/msb certificate.png" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="group border-3 border-black p-6 rounded-2xl flex flex-col justify-between gap-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex flex-col gap-4">
+                {/* Badge Icon */}
+                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white shrink-0">
+                  <Award className="w-6 h-6" />
+                </div>
+                {/* Title & Issuer */}
+                <div className="text-black">
+                  <h3 className="text-base sm:text-lg font-clash font-bold leading-tight group-hover:text-black">
+                    MSB Labs Certification
+                  </h3>
+                  <p className="text-sm font-clash font-medium text-gray-500 mt-1">
+                    Practical Network Penetration
+                  </p>
+                </div>
+              </div>
+              
+              {/* Call-to-action view link */}
+              <div className="flex items-center gap-2 text-xs font-akira text-black mt-2">
+                <span>VIEW CERTIFICATE</span>
+                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+              </div>
+            </a>
+          </div>
+        </section>
       </ScrollReveal>
 
 

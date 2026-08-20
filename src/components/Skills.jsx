@@ -50,7 +50,7 @@ const Skills = () => {
       {/* Title */}
       <div className="mb-16">
         <h2 className="font-akira text-2xl sm:text-4xl md:text-5xl lg:text-7xl text-black">
-          <ScrambleText text="TECH STACK" />
+          <ScrambleText text="THE STACK" />
         </h2>
         <p className="font-clash text-base sm:text-lg md:text-xl text-gray-500 font-medium mt-2 max-w-3xl">
           Technologies and tools I work with to build responsive frontends, scalable backends, database models, and intelligent systems.
