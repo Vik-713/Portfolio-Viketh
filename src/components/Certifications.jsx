@@ -14,9 +14,9 @@ const CERTIFICATES = [
     link: "/intro-to-ML.png",
   },
   {
-    title: "Machine Learning & AI",
-    issuer: "Applied AI & Intelligent Systems",
-    link: "/intro-to-ML.png",
+    title: "Intermediate Machine Learning",
+    issuer: "Kaggle",
+    link: "/intermediate-ML.png",
   },
 ];
 
