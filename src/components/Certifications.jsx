@@ -121,7 +121,7 @@ const Certifications = () => {
       {activeCert && (
         <div
           onClick={() => setSelectedCertIndex(null)}
-          className="fixed inset-0 z-[5000] bg-black/10 backdrop-blur-[1px] flex flex-col items-center justify-center p-3 sm:p-6 md:p-8 select-none animate-fade-in"
+          className="fixed inset-0 z-[5000] bg-black/60 backdrop-blur-sm flex flex-col items-center justify-between p-4 sm:p-6 md:p-8 select-none animate-fade-in"
           role="dialog"
           aria-modal="true"
           aria-label={activeCert.title}
@@ -129,7 +129,7 @@ const Certifications = () => {
           {/* Top Floating Control Bar */}
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-[1000px] flex items-center justify-between gap-3 mb-3 animate-reveal"
+            className="w-full max-w-[950px] flex items-center justify-between gap-3 shrink-0 animate-reveal"
           >
             {/* Title & Issuer Pill */}
             <div className="flex items-center gap-2 sm:gap-3 bg-white/95 backdrop-blur-md border-2 border-black rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] min-w-0">
@@ -183,7 +183,7 @@ const Certifications = () => {
           {/* Certificate Image Frame (Float without modal box) */}
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative flex items-center justify-center max-w-[1000px] w-full flex-1 max-h-[74vh] sm:max-h-[78vh] md:max-h-[80vh] animate-reveal"
+            className="relative flex items-center justify-center max-w-[950px] w-full flex-1 min-h-0 my-auto py-2 animate-reveal"
           >
             {/* Side Navigation Arrow Left */}
             <button
@@ -196,11 +196,11 @@ const Certifications = () => {
             </button>
 
             {/* Certificate Preview Card */}
-            <div className="relative max-h-full max-w-full flex items-center justify-center p-2 sm:p-3 bg-white border-3 border-black rounded-2xl sm:rounded-3xl shadow-[14px_14px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <div className="relative max-h-full max-w-full flex items-center justify-center p-2 sm:p-3 bg-white border-2 sm:border-[3px] border-black rounded-2xl sm:rounded-3xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] sm:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
               <img
                 src={activeCert.link}
                 alt={activeCert.title}
-                className="max-h-[64vh] sm:max-h-[70vh] md:max-h-[74vh] max-w-[88vw] w-auto h-auto object-contain rounded-xl select-none block"
+                className="max-h-[58vh] sm:max-h-[62vh] md:max-h-[66vh] max-w-[85vw] md:max-w-[850px] w-auto h-auto object-contain rounded-xl select-none block"
               />
             </div>
 
@@ -218,7 +218,7 @@ const Certifications = () => {
           {/* Bottom Floating Hint */}
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="mt-3 text-center text-[11px] sm:text-xs font-clash font-medium text-black bg-white/95 border border-black/20 px-4 py-1 rounded-full shadow-sm backdrop-blur-sm"
+            className="shrink-0 text-center text-[11px] sm:text-xs font-clash font-medium text-black bg-white/95 border border-black/20 px-4 py-1 rounded-full shadow-sm backdrop-blur-sm"
           >
             Use <kbd className="px-1.5 py-0.5 bg-slate-100 border border-black/20 rounded text-black font-mono text-[10px]">←</kbd> <kbd className="px-1.5 py-0.5 bg-slate-100 border border-black/20 rounded text-black font-mono text-[10px]">→</kbd> to switch • Scroll, <kbd className="px-1.5 py-0.5 bg-slate-100 border border-black/20 rounded text-black font-mono text-[10px]">ESC</kbd>, or click outside to close
           </div>
