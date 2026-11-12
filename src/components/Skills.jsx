@@ -33,12 +33,7 @@ const SKILLS_DATA = [
       { name: "RabbitMQ", level: 3, desc: "Asynchronous event ingestion and message queue system architectures." }
     ]
   },
-  {
-    category: "AI & Machine Learning",
-    icon: Brain,
-    inProgress: true,
-    skills: []
-  }
+  
 ];
 
 const Skills = () => {
