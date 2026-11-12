@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Cpu, Database, Brain } from 'lucide-react';
+import { Code2, Cpu, Database } from 'lucide-react';
 import ScrambleText from './ScrambleText';
 
 const SKILLS_DATA = [
@@ -53,20 +53,20 @@ const Skills = () => {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         {SKILLS_DATA.map((item, idx) => {
           const CategoryIcon = item.icon;
           return (
             <div 
               key={idx}
-              className="bg-white border-3 border-black rounded-3xl p-8 sm:p-10 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col gap-7"
+              className="bg-white border-3 border-black rounded-3xl p-6 sm:p-8 lg:p-8 xl:p-10 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300 flex flex-col gap-7"
             >
               {/* Category Header */}
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center text-white shrink-0">
-                  <CategoryIcon className="w-7 h-7" />
+              <div className="flex md:flex-col lg:flex-row items-center md:items-start lg:items-center gap-4 md:min-h-[108px] lg:min-h-[56px]">
+                <div className="w-12 h-12 xl:w-14 xl:h-14 bg-black rounded-xl flex items-center justify-center text-white shrink-0">
+                  <CategoryIcon className="w-6 h-6 xl:w-7 xl:h-7" />
                 </div>
-                <h3 className="font-akira text-sm sm:text-base md:text-lg text-black uppercase leading-tight">
+                <h3 className="font-akira text-sm md:text-sm xl:text-base text-black uppercase leading-tight">
                   {item.category}
                 </h3>
               </div>
@@ -88,7 +88,7 @@ const Skills = () => {
                       key={sIdx} 
                       className="group/item flex flex-col py-4 border-b border-gray-100 last:border-b-0 cursor-pointer overflow-hidden"
                     >
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center gap-3">
                         <span className="font-clash font-bold text-sm sm:text-base text-black group-hover/item:text-black transition-colors duration-200">
                           {skill.name}
                         </span>
