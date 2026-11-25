@@ -10,7 +10,8 @@ const PROJECTS = [
     tags: ["Python", "Groq API", "Gemma 4B", "Local LLM", "AI Agents"],
     github: "https://github.com/Vik-713/LLM-Research-Agent",
     view: "https://github.com/Vik-713",
-    type: "agent"
+    type: "research-agent",
+    image: "/projects/research-agent.svg"
   },
   {
     num: "02",
@@ -19,7 +20,8 @@ const PROJECTS = [
     tags: ["Python", "FastAPI", "RabbitMQ", "MongoDB", "Docker", "Chart.js"],
     github: "https://github.com/Vik-713/URL-Analytics-Event-Ingestion-Pipeline-",
     view: "https://github.com/Vik-713",
-    type: "analytics"
+    type: "analytics",
+    image: "/projects/url-analytics.svg"
   },
   {
     num: "03",
@@ -28,7 +30,8 @@ const PROJECTS = [
     tags: ["Python", "LangGraph", "LangChain", "MCP", "Groq", "Telegram"],
     github: "https://github.com/Vik-713/Viketh-Telegram-News-Bot",
     view: "https://github.com/Vik-713",
-    type: "agent"
+    type: "news-agent",
+    image: "/projects/news-agent.svg"
   },
   {
     num: "04",
@@ -37,7 +40,8 @@ const PROJECTS = [
     tags: ["Flutter", "Dart", "Firebase", "Cloud Firestore"],
     github: "https://github.com/Vik-713/HomeFind---Flutter",
     view: "https://github.com/Vik-713",
-    type: "realestate"
+    type: "realestate",
+    image: "/projects/homefind.svg"
   },
   {
     num: "05",
@@ -46,12 +50,53 @@ const PROJECTS = [
     tags: ["Python", "Scikit-learn", "K-Means", "Hierarchical Clustering", "PCA"],
     github: "https://github.com/Vik-713/ML---Bank_Customer_Segmentation",
     view: "https://github.com/Vik-713",
-    type: "ml"
+    type: "ml-segmentation",
+    image: "/projects/bank-segmentation.svg"
   }
 ];
 
-const MockupVisual = ({ type }) => {
-  switch (type) {
+const MockupVisual = ({ project }) => {
+  const [imageError, setImageError] = useState(false);
+
+  // If the project has an image and it loaded without error, render it
+  if (project?.image && !imageError) {
+    return (
+      <div className="w-full h-full bg-slate-950 rounded-xl overflow-hidden border border-black/10 flex items-center justify-center relative shadow-sm group/img">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover select-none transition-transform duration-500 group-hover/img:scale-105"
+          onError={() => setImageError(true)}
+        />
+      </div>
+    );
+  }
+
+  // Fallback interactive code/SVG mockups if image is missing or errors
+  switch (project?.type) {
+    case "research-agent":
+    case "agent":
+      return (
+        <div className="w-full h-full bg-slate-950 p-3 rounded-xl border border-white/10 flex flex-col justify-between font-mono text-[9px] text-white overflow-hidden">
+          <div className="flex justify-between items-center text-sky-400">
+            <span>⚡ HYBRID INFERENCE</span>
+            <span className="text-emerald-400">● DUAL ROUTE</span>
+          </div>
+          <div className="flex flex-col gap-1.5 my-auto">
+            <div className="bg-orange-500/10 border border-orange-500/20 p-1.5 rounded flex justify-between items-center">
+              <span className="text-orange-300 font-bold">GROQ (CLOUD)</span>
+              <span className="text-gray-400 text-[8px]">540 tok/s</span>
+            </div>
+            <div className="bg-sky-500/10 border border-sky-500/20 p-1.5 rounded flex justify-between items-center">
+              <span className="text-sky-300 font-bold">GEMMA 4B (Q4)</span>
+              <span className="text-gray-400 text-[8px]">LOCAL METAL</span>
+            </div>
+          </div>
+          <div className="text-[8px] text-gray-400 border-t border-white/5 pt-1 truncate">
+            &gt; Context routing: Analysis ➔ Cloud, Extract ➔ Local
+          </div>
+        </div>
+      );
     case "analytics":
       return (
         <div className="w-full h-full bg-slate-950 flex flex-col justify-end p-4 rounded-xl gap-2 overflow-hidden border border-white/10">
@@ -68,95 +113,63 @@ const MockupVisual = ({ type }) => {
           </div>
         </div>
       );
-    case "drone":
+    case "news-agent":
       return (
-        <div className="w-full h-full bg-slate-900 p-3 rounded-xl border border-white/5 flex flex-col justify-between font-mono text-[9px] text-white overflow-hidden">
-          <div className="flex justify-between items-center text-sky-400">
-            <span>☁ AWS CLOUD ROUTING</span>
-            <span className="animate-pulse">● ACTIVE RUN</span>
+        <div className="w-full h-full bg-slate-950 p-3 rounded-xl border border-white/10 flex flex-col justify-between font-mono text-[9px] text-white overflow-hidden">
+          <div className="flex justify-between items-center text-indigo-400">
+            <span>LANGGRAPH WORKFLOW</span>
+            <span className="text-green-400">● CRON 08:00</span>
           </div>
-          <div className="relative border border-white/10 w-full h-20 rounded bg-black/40 flex items-center justify-center overflow-hidden">
-            <svg className="w-full h-full absolute inset-0">
-              <polyline 
-                points="10,50 50,15 110,35 150,8 190,45" 
-                fill="none" 
-                stroke="#38bdf8" 
-                strokeWidth="1.5" 
-                strokeDasharray="4 2"
-              />
-              <circle cx="110" cy="35" r="4" fill="#38bdf8" className="animate-ping" />
-              <circle cx="110" cy="35" r="3" fill="#0ea5e9" />
-              <circle cx="10" cy="50" r="2" fill="#ffffff" />
-              <circle cx="50" cy="15" r="2" fill="#ffffff" />
-              <circle cx="150" cy="8" r="2" fill="#ffffff" />
-              <circle cx="190" cy="45" r="2" fill="#ffffff" />
-            </svg>
-            <div className="absolute top-1 right-2 text-[8px] text-gray-500">
-              D_ID: #409
+          <div className="flex items-center justify-between text-[8px] gap-1 my-auto">
+            <span className="bg-white/5 p-1 rounded border border-white/10 text-center">RSS Ingest</span>
+            <span>➔</span>
+            <span className="bg-indigo-500/20 p-1 rounded border border-indigo-400/30 text-indigo-200">State Graph</span>
+            <span>➔</span>
+            <span className="bg-green-500/20 p-1 rounded border border-green-400/30 text-green-200">Telegram</span>
+          </div>
+          <div className="text-[8px] text-gray-400 border-t border-white/5 pt-1 truncate">
+            &gt; SQLite Checkpoint • LLM Deduplication
+          </div>
+        </div>
+      );
+    case "realestate":
+      return (
+        <div className="w-full h-full bg-slate-900 p-3 rounded-xl border border-white/5 font-mono text-[9px] text-gray-300 flex flex-col justify-between overflow-hidden">
+          <div className="flex justify-between items-center text-sky-400">
+            <span>HOMEFIND • FLUTTER</span>
+            <span className="text-emerald-400">ATOMIC LOCK</span>
+          </div>
+          <div className="flex flex-col gap-1 my-auto text-[8px]">
+            <div className="flex justify-between bg-black/40 p-1 rounded border border-white/5">
+              <span>Slot 10:00 AM</span>
+              <span className="text-emerald-400">AVAILABLE</span>
+            </div>
+            <div className="flex justify-between bg-rose-500/10 p-1 rounded border border-rose-500/20">
+              <span className="text-rose-300">Slot 04:30 PM</span>
+              <span className="text-rose-400">🔒 RESERVED</span>
             </div>
           </div>
-          <div className="flex justify-between text-[8px] text-sky-400/85">
-            <span>LAT: 37.7749</span>
-            <span>LNG: -122.4194</span>
+          <div className="text-[8px] text-sky-400/80 truncate">
+            Firestore transaction prevents double-booking
           </div>
         </div>
       );
-    case "database":
-      return (
-        <div className="w-full h-full bg-slate-900 p-3 rounded-xl border border-white/5 font-mono text-[9px] text-gray-400 flex flex-col gap-1.5 overflow-hidden">
-          <div className="text-blue-400"># Patients Database Schema</div>
-          <div className="border-b border-white/10 pb-1 text-gray-300">TABLE admissions (</div>
-          <div className="pl-3">id SERIAL PRIMARY KEY,</div>
-          <div className="pl-3">patient_id INT REFERENCES patients(id),</div>
-          <div className="pl-3">bed_number VARCHAR(10) UNIQUE,</div>
-          <div className="pl-3">admitted_at TIMESTAMP DEFAULT NOW()</div>
-          <div className="text-gray-300">);</div>
-        </div>
-      );
-    case "graphql":
-      return (
-        <div className="w-full h-full bg-slate-900 p-3 rounded-xl border border-white/5 font-mono text-[9px] text-purple-400 flex flex-col gap-1 overflow-hidden">
-          <div>{"query GetProperty {"}</div>
-          <div className="pl-3 text-pink-400">{"property(id: \"101\") {"}</div>
-          <div className="pl-6 text-gray-300">address</div>
-          <div className="pl-6 text-gray-300">price</div>
-          <div className="pl-6 text-pink-400">{"resolvers {"}</div>
-          <div className="pl-9 text-gray-300">agentName</div>
-          <div className="pl-6">{"}"}</div>
-          <div className="pl-3">{"}"}</div>
-          <div>{"}"}</div>
-        </div>
-      );
+    case "ml-segmentation":
     case "ml":
       return (
-        <div className="w-full h-full bg-slate-950 p-3 rounded-xl border border-white/10 flex flex-col justify-center gap-3 font-mono text-[10px] text-white">
-          <div className="text-center font-bold text-yellow-400">REVIEW SENTIMENT</div>
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between"><span>Positive:</span> <span className="text-emerald-400">87.5%</span></div>
-            <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-              <div className="bg-emerald-400 h-full w-[87.5%]" />
-            </div>
+        <div className="w-full h-full bg-slate-950 p-3 rounded-xl border border-white/10 flex flex-col justify-between font-mono text-[9px] text-white">
+          <div className="flex justify-between items-center text-yellow-400 font-bold">
+            <span>PCA &amp; K-MEANS</span>
+            <span className="text-xs">k=4</span>
           </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between"><span>Negative:</span> <span className="text-rose-400">12.5%</span></div>
-            <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-              <div className="bg-rose-400 h-full w-[12.5%]" />
-            </div>
+          <div className="grid grid-cols-2 gap-1 text-[8px] my-auto">
+            <span className="text-sky-400">● High Net Worth (24%)</span>
+            <span className="text-emerald-400">● Savers (36%)</span>
+            <span className="text-purple-400">● Credit Active (22%)</span>
+            <span className="text-amber-400">● Dormant (18%)</span>
           </div>
-        </div>
-      );
-    case "player":
-      return (
-        <div className="w-full h-full bg-slate-900 p-4 rounded-xl border border-white/5 flex flex-col justify-center items-center gap-3">
-          <div className="text-center text-xs font-clash font-semibold text-white">MUSICAa Player</div>
-          <div className="w-full h-1 bg-white/10 rounded-full relative">
-            <div className="absolute left-0 top-0 bottom-0 bg-white w-1/3 rounded-full" />
-            <div className="absolute left-[33%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-white rounded-full shadow" />
-          </div>
-          <div className="flex gap-4 items-center text-white/80 text-xs">
-            <span>⏮</span>
-            <span className="text-lg">⏸</span>
-            <span>⏭</span>
+          <div className="text-[8px] text-gray-400 border-t border-white/5 pt-1">
+            Silhouette: 0.684 • PCA Var: 82.4%
           </div>
         </div>
       );
@@ -196,7 +209,7 @@ const Projects = () => {
               onClick={() => setActiveIndex(idx)}
               className="relative overflow-hidden border-b border-white/10 transition-all duration-300 ease-in-out cursor-pointer"
               style={{
-                height: isActive ? '320px' : '90px'
+                height: isActive ? '330px' : '90px'
               }}
             >
               {/* Inactive Header Row */}
@@ -265,7 +278,7 @@ const Projects = () => {
 
                 {/* Mockup visual side */}
                 <div className="w-full sm:w-1/3 h-32 sm:h-auto flex-shrink-0 flex items-stretch py-1 mt-4 sm:mt-0 select-none">
-                  <MockupVisual type={project.type} />
+                  <MockupVisual project={project} />
                 </div>
               </div>
             </div>

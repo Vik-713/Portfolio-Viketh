@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#05070d"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="260" rx="14" fill="url(#bgGrad)"/>
+  <rect width="400" height="260" rx="14" fill="none" stroke="rgba(99,102,241,0.2)" stroke-width="1.5"/>
+
+  <!-- Window Header -->
+  <circle cx="20" cy="18" r="4" fill="#ef4444" opacity="0.8"/>
+  <circle cx="32" cy="18" r="4" fill="#eab308" opacity="0.8"/>
+  <circle cx="44" cy="18" r="4" fill="#22c55e" opacity="0.8"/>
+  <text x="64" y="22" fill="#a5b4fc" font-family="monospace" font-size="9" font-weight="600" letter-spacing="1">AI NEWS AGENT • LANGGRAPH WORKFLOW</text>
+  <rect x="315" y="11" width="70" height="15" rx="7.5" fill="rgba(99,102,241,0.2)"/>
+  <circle cx="325" cy="18.5" r="2.5" fill="#818cf8"/>
+  <text x="333" y="22" fill="#c7d2fe" font-family="monospace" font-size="8" font-weight="700">SCHEDULED</text>
+
+  <line x1="0" y1="34" x2="400" y2="34" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Workflow Graph Connections -->
+  <path d="M 60 76 L 140 76 M 220 76 L 270 76 M 270 76 L 270 140 M 270 140 L 220 140 M 140 140 L 60 140" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 3" opacity="0.6"/>
+
+  <!-- Node 1: RSS Ingestion -->
+  <g transform="translate(20, 56)">
+    <rect width="90" height="42" rx="6" fill="url(#nodeGrad)" stroke="#6366f1" stroke-width="1"/>
+    <text x="8" y="16" fill="#818cf8" font-family="monospace" font-size="7.5" font-weight="700">01. INGEST</text>
+    <text x="8" y="28" fill="#f8fafc" font-family="monospace" font-size="9" font-weight="600">RSS Feeds</text>
+    <text x="8" y="37" fill="#64748b" font-family="monospace" font-size="6.5">24 sources active</text>
+  </g>
+
+  <!-- Node 2: LangGraph State Machine -->
+  <g transform="translate(136, 56)">
+    <rect width="112" height="42" rx="6" fill="url(#nodeGrad)" stroke="#38bdf8" stroke-width="1.2"/>
+    <text x="8" y="16" fill="#38bdf8" font-family="monospace" font-size="7.5" font-weight="700">02. LANGGRAPH</text>
+    <text x="8" y="28" fill="#f8fafc" font-family="monospace" font-size="9" font-weight="600">State Routing</text>
+    <text x="8" y="37" fill="#64748b" font-family="monospace" font-size="6.5">Condition checking</text>
+  </g>
+
+  <!-- Node 3: LLM Filter & Summarizer -->
+  <g transform="translate(274, 56)">
+    <rect width="106" height="42" rx="6" fill="url(#nodeGrad)" stroke="#ec4899" stroke-width="1"/>
+    <text x="8" y="16" fill="#f472b6" font-family="monospace" font-size="7.5" font-weight="700">03. GROQ LLM</text>
+    <text x="8" y="28" fill="#f8fafc" font-family="monospace" font-size="9" font-weight="600">Deduplicate</text>
+    <text x="8" y="37" fill="#64748b" font-family="monospace" font-size="6.5">Extract &amp; rank</text>
+  </g>
+
+  <!-- Node 4: Telegram Bot Dispatch -->
+  <g transform="translate(20, 122)">
+    <rect width="170" height="46" rx="6" fill="url(#nodeGrad)" stroke="#22c55e" stroke-width="1"/>
+    <text x="8" y="16" fill="#4ade80" font-family="monospace" font-size="7.5" font-weight="700">04. DISPATCH • TELEGRAM</text>
+    <text x="8" y="28" fill="#f8fafc" font-family="monospace" font-size="9" font-weight="600">Personalized Briefing</text>
+    <text x="8" y="38" fill="#94a3b8" font-family="monospace" font-size="7">Daily 08:00 UTC • Memory: Checkpointed</text>
+  </g>
+
+  <!-- Telegram Message Preview Card -->
+  <g transform="translate(200, 122)">
+    <rect width="180" height="46" rx="6" fill="rgba(34,197,94,0.05)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+    <text x="8" y="16" fill="#86efac" font-family="monospace" font-size="7.5" font-weight="700">✈ BOT DIGEST PREVIEW</text>
+    <text x="8" y="27" fill="#e2e8f0" font-family="monospace" font-size="7">"Top 3 stories in AI &amp; Agents:</text>
+    <text x="8" y="38" fill="#94a3b8" font-family="monospace" font-size="6.5">1. Multi-agent planning standards..."</text>
+  </g>
+
+  <!-- Bottom Architecture Metrics -->
+  <rect x="20" y="184" width="360" height="60" rx="6" fill="#030712" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="30" y="202" fill="#818cf8" font-family="monospace" font-size="8">&gt; LangGraph State: [RUN_SUCCESS] • SQLite Checkpointer: Sync OK</text>
+  <text x="30" y="217" fill="#cbd5e1" font-family="monospace" font-size="8">&gt; Ingested: 142 articles | Ranked Top: 5 | User Retention: 99.2%</text>
+  <text x="30" y="232" fill="#38bdf8" font-family="monospace" font-size="8">&gt; Tool use: MCP Web-Search fallback enabled</text>
+</svg>

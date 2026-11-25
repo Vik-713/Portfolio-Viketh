@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="260" rx="14" fill="url(#bgGrad)"/>
+  <rect width="400" height="260" rx="14" fill="none" stroke="rgba(250,204,21,0.2)" stroke-width="1.5"/>
+
+  <!-- Window Header -->
+  <circle cx="20" cy="18" r="4" fill="#ef4444" opacity="0.8"/>
+  <circle cx="32" cy="18" r="4" fill="#eab308" opacity="0.8"/>
+  <circle cx="44" cy="18" r="4" fill="#22c55e" opacity="0.8"/>
+  <text x="64" y="22" fill="#fef08a" font-family="monospace" font-size="9" font-weight="600" letter-spacing="1">BANK CUSTOMER SEGMENTATION • K-MEANS &amp; PCA</text>
+  <rect x="315" y="11" width="70" height="15" rx="7.5" fill="rgba(250,204,21,0.15)"/>
+  <circle cx="325" cy="18.5" r="2.5" fill="#facc15"/>
+  <text x="333" y="22" fill="#fef08a" font-family="monospace" font-size="8" font-weight="700">k=4 CLUSTERS</text>
+
+  <line x1="0" y1="34" x2="400" y2="34" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- 2D PCA Scatter Plot (Left) -->
+  <g transform="translate(20, 44)">
+    <rect width="210" height="142" rx="8" fill="#030712" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <!-- Grid lines -->
+    <line x1="20" y1="20" x2="190" y2="20" stroke="rgba(255,255,255,0.04)" stroke-dasharray="2 2"/>
+    <line x1="20" y1="50" x2="190" y2="50" stroke="rgba(255,255,255,0.04)" stroke-dasharray="2 2"/>
+    <line x1="20" y1="80" x2="190" y2="80" stroke="rgba(255,255,255,0.04)" stroke-dasharray="2 2"/>
+    <line x1="20" y1="110" x2="190" y2="110" stroke="rgba(255,255,255,0.04)" stroke-dasharray="2 2"/>
+    <line x1="105" y1="10" x2="105" y2="130" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <line x1="10" y1="70" x2="200" y2="70" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+    <!-- Cluster 0: High Net Worth (Cyan) -->
+    <ellipse cx="55" cy="40" rx="30" ry="20" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.3)" stroke-dasharray="2 2"/>
+    <circle cx="48" cy="35" r="2.5" fill="#38bdf8"/>
+    <circle cx="62" cy="42" r="2" fill="#38bdf8"/>
+    <circle cx="42" cy="46" r="2" fill="#38bdf8"/>
+    <circle cx="68" cy="34" r="2.5" fill="#38bdf8"/>
+    <circle cx="55" cy="40" r="3.5" fill="#0284c7" stroke="#ffffff" stroke-width="1"/> <!-- Centroid -->
+
+    <!-- Cluster 1: Young Savers (Emerald) -->
+    <ellipse cx="155" cy="42" rx="28" ry="22" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.3)" stroke-dasharray="2 2"/>
+    <circle cx="145" cy="38" r="2" fill="#4ade80"/>
+    <circle cx="162" cy="46" r="2" fill="#4ade80"/>
+    <circle cx="152" cy="50" r="2.5" fill="#4ade80"/>
+    <circle cx="168" cy="34" r="2" fill="#4ade80"/>
+    <circle cx="155" cy="42" r="3.5" fill="#16a34a" stroke="#ffffff" stroke-width="1"/> <!-- Centroid -->
+
+    <!-- Cluster 2: Revolving Credit (Purple) -->
+    <ellipse cx="62" cy="100" rx="28" ry="18" fill="rgba(168,85,247,0.12)" stroke="rgba(168,85,247,0.3)" stroke-dasharray="2 2"/>
+    <circle cx="54" cy="95" r="2" fill="#c084fc"/>
+    <circle cx="68" cy="104" r="2.5" fill="#c084fc"/>
+    <circle cx="72" cy="94" r="2" fill="#c084fc"/>
+    <circle cx="50" cy="106" r="2" fill="#c084fc"/>
+    <circle cx="62" cy="100" r="3.5" fill="#9333ea" stroke="#ffffff" stroke-width="1"/> <!-- Centroid -->
+
+    <!-- Cluster 3: Dormant/Low Activity (Amber) -->
+    <ellipse cx="150" cy="102" rx="30" ry="20" fill="rgba(245,158,11,0.12)" stroke="rgba(245,158,11,0.3)" stroke-dasharray="2 2"/>
+    <circle cx="142" cy="98" r="2" fill="#fbbf24"/>
+    <circle cx="158" cy="105" r="2" fill="#fbbf24"/>
+    <circle cx="146" cy="110" r="2.5" fill="#fbbf24"/>
+    <circle cx="162" cy="95" r="2" fill="#fbbf24"/>
+    <circle cx="150" cy="102" r="3.5" fill="#d97706" stroke="#ffffff" stroke-width="1"/> <!-- Centroid -->
+
+    <!-- Axis Labels -->
+    <text x="140" y="136" fill="#64748b" font-family="monospace" font-size="7">PCA Dim 1 (54%)</text>
+    <text x="6" y="16" fill="#64748b" font-family="monospace" font-size="7">PCA 2</text>
+  </g>
+
+  <!-- Cluster Personas Legend (Right) -->
+  <g transform="translate(240, 44)">
+    <rect width="140" height="142" rx="8" fill="#030712" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="10" y="16" fill="#f8fafc" font-family="monospace" font-size="7.5" font-weight="700">PERSONAS IDENTIFIED</text>
+
+    <circle cx="16" cy="34" r="3.5" fill="#38bdf8"/>
+    <text x="26" y="37" fill="#bae6fd" font-family="monospace" font-size="7.5" font-weight="600">High Net Worth (24%)</text>
+
+    <circle cx="16" cy="58" r="3.5" fill="#4ade80"/>
+    <text x="26" y="61" fill="#bbf7d0" font-family="monospace" font-size="7.5" font-weight="600">Stable Savers (36%)</text>
+
+    <circle cx="16" cy="82" r="3.5" fill="#c084fc"/>
+    <text x="26" y="85" fill="#e9d5ff" font-family="monospace" font-size="7.5" font-weight="600">Credit Active (22%)</text>
+
+    <circle cx="16" cy="106" r="3.5" fill="#fbbf24"/>
+    <text x="26" y="109" fill="#fef08a" font-family="monospace" font-size="7.5" font-weight="600">Low Activity (18%)</text>
+
+    <line x1="8" y1="120" x2="132" y2="120" stroke="rgba(255,255,255,0.08)"/>
+    <text x="10" y="132" fill="#94a3b8" font-family="monospace" font-size="6.5">Hierarchical + K-Means</text>
+  </g>
+
+  <!-- Validation Metrics Bar -->
+  <rect x="20" y="196" width="360" height="48" rx="6" fill="#020617" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="30" y="214" fill="#facc15" font-family="monospace" font-size="8">&gt; Silhouette Score: 0.684 • Optimal Elbow Curve confirmed at k=4</text>
+  <text x="30" y="230" fill="#94a3b8" font-family="monospace" font-size="7.5">&gt; PCA Variance Explained: 82.4% • Cross-validation Stability: 94.6%</text>
+</svg>
