@@ -5,55 +5,46 @@ import ScrambleText from './ScrambleText';
 const PROJECTS = [
   {
     num: "01",
+    title: "Research Agent — Hybrid LLM Research System",
+    desc: "An AI-powered research agent combining Groq API inference with a locally running quantized Gemma 4B model (Q4) to perform research tasks using both cloud and local LLM capabilities.",
+    tags: ["Python", "Groq API", "Gemma 4B", "Local LLM", "AI Agents"],
+    github: "https://github.com/Vik-713/LLM-Research-Agent",
+    view: "https://github.com/Vik-713",
+    type: "agent"
+  },
+  {
+    num: "02",
     title: "Real-Time URL Analytics System",
-    desc: "An analytics platform for shortened URLs that captures click events (timestamp, device, browser, location) through a RabbitMQ ingestion pipeline and visualizes trends on live dashboards.",
+    desc: "An analytics platform for shortened URLs that captures click events through a RabbitMQ ingestion pipeline, stores analytics data in MongoDB, and visualizes trends on interactive dashboards.",
     tags: ["Python", "FastAPI", "RabbitMQ", "MongoDB", "Docker", "Chart.js"],
     github: "https://github.com/Vik-713/URL-Analytics-Event-Ingestion-Pipeline-",
     view: "https://github.com/Vik-713",
     type: "analytics"
   },
   {
-    num: "02",
-    title: "DroneRoute Aerial Delivery Cloud",
-    desc: "A cloud-native aerial routing system for drone-based delivery services, demonstrating AWS cloud deployments, secure API routing, and scalable production architecture.",
-    tags: ["AWS", "Docker", "DevOps", "Cloud", "CI/CD"],
-    github: "https://github.com/Vik-713/Drone-Route-Cloud",
-    view: "https://github.com/Vik-713",
-    type: "drone"
-  },
-  {
     num: "03",
-    title: "SynapseGrid — Healthcare",
-    desc: "A robust backend system for managing patients, admissions, and beds, with database routes and services built in Flask and PostgreSQL running in Docker.",
-    tags: ["Python", "Flask", "PostgreSQL", "Docker"],
-    github: "https://github.com/Vik-713/SynapseGrid-Healthcare-Management-System-Devops-",
+    title: "AI News Agent",
+    desc: "An automated AI-powered news aggregation agent that collects articles from RSS feeds, analyzes and filters them using LLMs through a LangGraph workflow, and delivers personalized briefings via Telegram with persistent memory and scheduled execution.",
+    tags: ["Python", "LangGraph", "LangChain", "MCP", "Groq", "Telegram"],
+    github: "https://github.com/Vik-713/Viketh-Telegram-News-Bot",
     view: "https://github.com/Vik-713",
-    type: "database"
+    type: "agent"
   },
   {
     num: "04",
-    title: "Real Estate Property Management API",
-    desc: "A GraphQL backend for managing property-related data — schema design, resolvers, and a PostgreSQL data model via SQLAlchemy.",
-    tags: ["GraphQL", "PostgreSQL", "SQLAlchemy"],
-    github: "https://github.com/Vik-713/Real-Estate-Management-GraphQL",
+    title: "HomeFind — Real Estate Listing & Viewing Scheduler",
+    desc: "A cross-platform real estate application connecting property buyers and agents through property listings, real-time availability, and appointment scheduling. Uses atomic Firestore transactions to prevent double-booking of viewing slots.",
+    tags: ["Flutter", "Dart", "Firebase", "Cloud Firestore"],
+    github: "https://github.com/Vik-713/HomeFind---Flutter",
     view: "https://github.com/Vik-713",
-    type: "graphql"
+    type: "realestate"
   },
   {
     num: "05",
-    title: "MUSICAa — Music Streaming App",
-    desc: "A full-stack music streaming web app with a React frontend and Node/Express backend supporting live streaming features.",
-    tags: ["React", "Node.js", "Express"],
-    github: "https://github.com/Vik-713/MiMusicaa",
-    view: "https://github.com/Vik-713",
-    type: "player"
-  },
-  {
-    num: "06",
-    title: "Amazon Review Sentiment Analyzer",
-    desc: "Classifies Amazon customer review sentiment using TF-IDF vectorization, logistic regression, and K-means clustering.",
-    tags: ["Python", "TF-IDF", "Logistic Regression", "K-Means"],
-    github: "https://github.com/Vik-713/Amazon-Review-Sentiment-Analyzing",
+    title: "Bank Customer Segmentation",
+    desc: "An unsupervised machine learning pipeline that segments banking customers using K-Means and Hierarchical Clustering, validated through Silhouette Analysis, the Elbow Method, PCA, and cluster stability analysis to derive actionable customer personas.",
+    tags: ["Python", "Scikit-learn", "K-Means", "Hierarchical Clustering", "PCA"],
+    github: "https://github.com/Vik-713/ML---Bank_Customer_Segmentation",
     view: "https://github.com/Vik-713",
     type: "ml"
   }
